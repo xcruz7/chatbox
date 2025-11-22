@@ -20,14 +20,14 @@ app.post("/translate", async (req, res) => {
     const response = await fetch(url);
     const data = await response.json();
 
-    const translated = data[0][0][0]; // Google response format
-
+    const translated = data[0][0][0]; // Extract translated text
     res.json({ translated });
-
   } catch (err) {
-    console.error(err);
+    console.error("Translation Error:", err);
     res.status(500).json({ error: "Translation failed" });
   }
 });
 
-app.listen(5000, () => console.log("🔥 Server running on port 5000"));
+// ✅ Use Render’s dynamic port instead of fixed 5000
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`🔥 Server running on port ${PORT}`));
