@@ -9,7 +9,7 @@ export default function TranslateChat() {
   const translateText = async () => {
     if (!input.trim()) return;
 
-    const res = await fetch("http://localhost:5000/translate", {
+    const res = await fetch("https://chatbox-orgy.onrender.com", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
